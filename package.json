@@ -1,0 +1,43 @@
+{
+  "name": "api-server-starter-kit",
+  "version": "0.0.1",
+  "description": "Starter Kit to build api server complete with authentication",
+  "main": "build/app-server.js",
+  "scripts": {
+    "startd": "nodemon build/app-server.js",
+    "buildd": "webpack --progress --colors --watch",
+    "mongod": "mongod --dbpath ../mongodb/data",
+    "build": "webpack --progress --colors",
+    "prestart": "npm run build",
+    "start": "node build/app-server.js",
+    "poststart": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lennart Twen",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jwt-simple": "^0.5.0",
+    "mongoose": "^4.6.0",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.1.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "webpack": "^1.13.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4n3ver/APIServerStarter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/4n3ver/APIServerStarter/issues"
+  },
+  "homepage": "https://github.com/4n3ver/APIServerStarter#readme"
+}
