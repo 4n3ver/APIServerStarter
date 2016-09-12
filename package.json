@@ -7,6 +7,7 @@
     "startd": "nodemon build/app-server.js",
     "buildd": "webpack --progress --colors --watch",
     "mongod": "mongod --dbpath ../mongodb/data",
+    "clean": "rm -rf build/",
     "build": "webpack --progress --colors",
     "prestart": "npm run build",
     "start": "node build/app-server.js",
