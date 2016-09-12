@@ -3,10 +3,10 @@
 import passport from "passport";
 import { ExtractJwt, Strategy as JwtStrategy } from "passport-jwt";
 import LocalStrategy from "passport-local";
-import User from "../models/user";
+import User from "../models/User";
 import { SECRET } from "../config";
 
-const localOptions = {
+const localOptions: {usernameField: string} = {
     usernameField: "email"
 };
 
@@ -16,7 +16,7 @@ const jwtOptions = {
 };
 
 const localLogin = new LocalStrategy(localOptions,
-    (email, password, done) => {
+    (email: string, password: string, done: Function) => {
         User.findOne({email}, (err, foundUser) => {
             if (err) {
                 done(err, false);
@@ -52,4 +52,5 @@ passport.use(jwtLogin);
 passport.use(localLogin);
 
 export const requireAuth = passport.authenticate("jwt", {session: false});
-export const requireCorrectInfo = passport.authenticate("local", {session: false});
+export const requireCorrectInfo = passport.authenticate("local",
+                                                        {session: false});

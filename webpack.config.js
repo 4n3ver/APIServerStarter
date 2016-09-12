@@ -23,11 +23,14 @@ module.exports = [
                 {
                     test          : /\.js$/,
                     exclude       : /(node_modules)/,
-                    loader        : "babel",
+                    loader        : "babel-loader",
                     cacheDirectory: true,
                     query         : {
                         presets: [
                             "es2015"
+                        ],
+                        plugins: [
+                            "transform-flow-strip-types"
                         ]
                     }
                 }

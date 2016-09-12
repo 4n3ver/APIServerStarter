@@ -1,3 +1,4 @@
+/* @flow */
 "use strict";
 
 import mongoose from "mongoose";
@@ -40,10 +41,7 @@ userSchema.methods.comparePassword = function (maybePassword, callback) {
 };
 
 // create model class based on schema
-const UserModelClass = mongoose.models.user
-    // workaround with es6, somehow mongoose try to call this on every import
-    ? mongoose.model("user")
-    : mongoose.model("user", userSchema);   // not allowed to call this twice
+const UserModelClass = mongoose.model("user", userSchema);
 
 // export model class
 export default UserModelClass;
