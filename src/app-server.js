@@ -4,6 +4,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import cors from "cors";
 import morgan from "morgan";
 
 import routes from "./routes";
@@ -15,6 +16,9 @@ const app = express();
 mongoose.connect(DB_URL);
 
 /* setup middlewares */
+
+// allow cross-origin resource sharing
+app.use(cors());
 
 // log incoming requests for debugging
 app.use(morgan("combined"));

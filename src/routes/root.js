@@ -9,7 +9,8 @@ import {
 
 const router = Router();
 
-router.get("/", requireAuth, (req, resp) => resp.send("hellow"));
+router.get("/", requireAuth, (req, resp) =>
+    resp.send({message: "hellow mellow"}));
 router.post("/signin", requireCorrectInfo, (req, resp, next) => {
     resp.send(authentication.signin(req.user));
 });
