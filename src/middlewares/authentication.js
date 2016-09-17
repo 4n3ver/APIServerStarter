@@ -1,3 +1,4 @@
+/* @flow */
 "use strict";
 
 import passport from "passport";
@@ -6,7 +7,7 @@ import LocalStrategy from "passport-local";
 import User from "../models/User";
 import { SECRET } from "../config";
 
-const localOptions: {usernameField: string} = {
+const localOptions = {
     usernameField: "email"
 };
 
@@ -16,7 +17,7 @@ const jwtOptions = {
 };
 
 const localLogin = new LocalStrategy(localOptions,
-    (email: string, password: string, done: Function) => {
+    (email, password, done) => {
         User.findOne({email}, (err, foundUser) => {
             if (err) {
                 done(err, false);

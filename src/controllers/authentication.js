@@ -4,7 +4,7 @@ import { encode } from "jwt-simple";
 import User from "../models/User";
 import { SECRET } from "../config";
 
-const genUserToken = (user) => encode(
+const genUserToken = user => encode(
     {
         sub: user.id,               // subject
         iat: new Date().getTime()   // issued at time
@@ -44,5 +44,5 @@ export default {
     },
 
     // user is authenticated, need to gen token
-    signin: (user) => ({token: genUserToken(user)})
+    signin: user => ({token: genUserToken(user)})
 };
