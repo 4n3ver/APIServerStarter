@@ -6,7 +6,6 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
-
 import routes from "./routes";
 import { PORT, IP, DB_URL } from "./config";
 

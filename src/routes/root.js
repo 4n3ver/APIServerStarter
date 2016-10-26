@@ -12,9 +12,11 @@ const router = Router();
 
 router.get("/", requireAuth, (req, resp) =>
     resp.send({message: "hellow mellow"}));
+
 router.post("/signin", requireCorrectInfo, (req, resp, next) => {
     resp.send(authentication.signin(req.user));
 });
+
 router.post("/signup", (req, resp, next) => {
     authentication.signup(
         req.body.email,
